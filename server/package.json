@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --passWithNoTests  --watch",
-    "test:staged": "jest --passWithNoTests"
+    "test:staged": "jest"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
@@ -30,6 +30,7 @@
   "lint-staged": {
     "*.ts": [
       "./node_modules/.bin/eslint — fix",
+      "yarn test:staged",
       "git add"
     ]
   }
