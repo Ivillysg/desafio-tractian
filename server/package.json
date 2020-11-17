@@ -7,7 +7,11 @@
     "build": "tsc",
     "start": "NODE_ENV=production node dist/server.js",
     "dev": "NODE_ENV=development ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "test": "NODE_ENV=test jest --passWithNoTests  --watch"
+    "test": "NODE_ENV=test jest --passWithNoTests --silent --noStackTrace --runInBand --no-cache",
+    "test:watch":"npm test -- --watch",
+    "test:ci": "npm test -- --coverage",
+    "test:staged": "npm test -- --findRelatedTests"
+
   },
   "devDependencies": {
     "@types/cors": "^2.8.8",
@@ -38,12 +42,15 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "huskey":{
-    "hooks":{
-      "pre-commit":"lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
-  "lint-staged":{
-    "src/**/*.ts":"eslint && jest --findRelatedTests"
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint",
+      "yarn test"
+    ]
   }
 }
