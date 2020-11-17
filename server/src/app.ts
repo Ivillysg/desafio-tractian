@@ -1,6 +1,9 @@
 import express, { Express } from 'express';
 import routes from './routes';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+
 class AppController {
   server: Express;
 

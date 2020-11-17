@@ -5,7 +5,7 @@ const routes = Router();
 
 routes.get('/',(req,res)=>res.send('hello'))
 
-routes.post('/user', UserController.store)
+routes.post('/signup', UserController.store)
 
 
 

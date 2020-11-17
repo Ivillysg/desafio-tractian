@@ -1,13 +1,8 @@
-module.exports = {
-  clearMocks: true,
-
+export default {
   coverageDirectory: 'coverage',
-
-  coverageProvider: 'v8',
+  testEnvironment: 'node',
 
   preset: 'ts-jest',
-
-  testEnvironment: 'node',
 
   testMatch: ['**/__tests__/**/*.spec.ts'],
 };
