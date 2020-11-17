@@ -1,22 +1,28 @@
 import { Request, Response } from 'express';
-import User from '../models/user'
+import User from '../models/user';
+import CRUD from '../protocols/CRUD';
+import * as Yup from 'yup';
 
 class UserController {
   async store(req: Request, res: Response) {
-    try {
-      const { name } = req.body
-      if (!name || name === "") {
-        return res.status(400).json({ error: 'Field name is required!' })
-      }
-      await User.create(req.body).then(resp => res.status(200).json(req.body)).catch(err=>console.log(err))
+    const { email } = req.body;
+    const data = { email };
 
-    } catch (err) {
-      console.log(err)
-      return res.status(500).json({ error: 'Internal error server' })
+    const schema = Yup.object().shape({
+      email: Yup.string().required(),
+    });
 
-    }
+    await schema.validate(data, { abortEarly: false });
 
+    const user = await CRUD.create(User, data);
+
+    return res.status(201).json(user);
+  }
+
+  async index(req: Request, res: Response) {
+    const Users = await CRUD.readAll(User).populate('companys');
+    return res.status(200).send(Users);
   }
 }
 
-export default new UserController
+export default new UserController();
