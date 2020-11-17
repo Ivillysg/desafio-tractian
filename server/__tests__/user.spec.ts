@@ -7,8 +7,7 @@ import database from './utils/database'
 // Setup a Test Database
 database('endpoint-testing')
 
-// Continue with your tests...
-
+//tests...
 describe('User Controller', () => {
 
   it('Should create a new user and return status 200', async () => {
@@ -20,7 +19,7 @@ describe('User Controller', () => {
       .post('/user')
       .send(user)
 
-    expect(response.status).toBe(404)
+    expect(response.status).toBe(200)
   });
 
 
