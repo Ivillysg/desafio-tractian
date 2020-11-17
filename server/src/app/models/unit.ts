@@ -4,31 +4,32 @@ const UnitSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
 
   company: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Companys',
-    required: true
+    ref: 'companys',
+    required: true,
   },
 
   assignedTo: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Users',
-    required: true
+    ref: 'users',
+    required: true,
   },
 
-  actives: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Actives'
-  }],
+  actives: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'actives',
+    },
+  ],
 
   createdAt: {
     type: Date,
-    default: Date.now
-  }
-})
+    default: Date.now,
+  },
+});
 
-
-export default mongoose.model('Units', UnitSchema)
+export default mongoose.model('units', UnitSchema);
