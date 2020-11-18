@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import unit from './unit';
 
 const ActiveSchema = new mongoose.Schema({
   name: {
@@ -23,19 +24,19 @@ const ActiveSchema = new mongoose.Schema({
 
   assignedTo: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'Users',
     required: true,
   },
 
   company: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'companys',
+    ref: 'Companys',
     required: true,
   },
 
   unit: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'units',
+    ref: 'Units',
     required: true,
   },
 
@@ -55,4 +56,4 @@ const ActiveSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('actives', ActiveSchema);
+export default mongoose.model('Actives', ActiveSchema);

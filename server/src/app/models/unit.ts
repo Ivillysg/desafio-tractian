@@ -9,20 +9,20 @@ const UnitSchema = new mongoose.Schema({
 
   company: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'companys',
+    ref: 'Companys',
     required: true,
   },
 
   assignedTo: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'Users',
     required: true,
   },
 
   actives: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'actives',
+      ref: 'Actives',
     },
   ],
 
@@ -32,4 +32,4 @@ const UnitSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('units', UnitSchema);
+export default mongoose.model('Units', UnitSchema);
