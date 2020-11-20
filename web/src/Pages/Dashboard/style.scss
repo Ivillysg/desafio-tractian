@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+  border-radius: .3rem;
+  // box-shadow: 0px 3px 6px rgba($color: #000000, $alpha: .2);
+}
+
+.topo {
+  width: 100%;
+
+  #select-unit {
+    font: 400 1.5rem Poppins;
+    background-color: transparent;
+  }
+
+  #select-unit .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background: transparent;
+    color: #000;
+    border: 1px solid #777777;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+
+  }
+
+
+  .active {
+
+    .active-info {
+      margin-top: 1rem;
+      width: 80%;
+      display: flex;
+      padding: 1.5rem .5rem;
+      background-color: #ffff;
+      border-radius: .3rem;
+      flex-direction: column;
+      img {
+        height: 140px;
+      }
+
+      .info-body {
+        display: flex;
+
+        .info {
+          margin-left: 1rem;
+          span {
+
+            font: 500 1rem Poppins;
+            display: flex;
+            flex-direction: column;
+
+            small {
+              font: 400 15px Poppins;
+              color: #a7a7a7;
+            }
+          }
+        }
+
+      }
+    }
+
+    p {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font: 500 1rem Poppins;
+      }
+
+      small {
+        font: 400 15px Poppins;
+        color: #a7a7a7;
+      }
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .topo{
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+  }
+}

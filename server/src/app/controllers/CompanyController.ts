@@ -1,9 +1,7 @@
 import { Request, Response } from 'express';
 import Company from '../models/companys';
-import Unit from '../models/unit';
-import Active from '../models/active';
 
-import CRUD from '../protocols/CRUD';
+import CRUD from '../interface/CRUD';
 import * as Yup from 'yup';
 import User from '../models/user';
 
@@ -34,12 +32,15 @@ class CompanyController {
     return res.status(201).json(newCompany);
   }
   async index(req: Request, res: Response) {
-    const companys = await CRUD.readAll(Company).populate('units');
-    return res.status(200).json(companys);
+    const data = await CRUD.readAll(Company).populate(['units', 'assignedTo']);
+
+    return res.status(200).json(data);
   }
   async show(req: Request, res: Response) {
     const { id } = req.params;
-    const company = await CRUD.findOne(Company, id).populate('units');
+    const company = await CRUD.findOne(Company, id)
+      .populate('units')
+      .sort({ createdAt: -1 });
     if (!company) {
       return res.status(404).json({ message: 'Company not found!' });
     }
@@ -64,11 +65,9 @@ class CompanyController {
   }
   async delete(req: Request, res: Response) {
     const { id } = req.params;
-    const company = await CRUD.delete(Company, id);
-    //Cascade
-    await Unit.deleteOne({ company: id });
-    await Active.deleteOne({ company: id });
-    if (company['n'] === 0) {
+    const company = await Company.findByIdAndDelete(id);
+
+    if (!company) {
       return res.status(404).json({ message: 'Company not found!' });
     }
     return res.status(200).json(company);

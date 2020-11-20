@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
+import Actives from './active';
 
 const UnitSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
 
   company: {
@@ -31,5 +31,11 @@ const UnitSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
-
+UnitSchema.post('findOneAndDelete', async function (doc) {
+  if (doc) {
+    await Actives.deleteMany({
+      unit: doc._id,
+    });
+  }
+});
 export default mongoose.model('Units', UnitSchema);

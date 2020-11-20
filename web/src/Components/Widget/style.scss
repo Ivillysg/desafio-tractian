@@ -1,0 +1,45 @@
+
+  .widget {
+    background: white;
+
+    width: 15rem;
+    height: 7rem;
+    border-radius: .3rem;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      border-radius: 50px;
+      padding: 15px;
+      background: #001529;
+      position: absolute;
+      top: -25%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+    }
+
+    .info {
+      margin-top: 3.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      >span {
+        font: 500 1rem Poppins;
+        color: #A7AFB2;
+      }
+
+      >h4 {
+        font: 500 30px Poppins;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }

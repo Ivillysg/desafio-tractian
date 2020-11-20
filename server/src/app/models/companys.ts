@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
+import Units from './unit';
+import Actives from './active';
 
 const CompanySchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   assignedTo: {
     type: mongoose.Schema.Types.ObjectId,
@@ -23,6 +24,18 @@ const CompanySchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+});
+CompanySchema.post('findOneAndDelete', async function (doc) {
+  if (doc) {
+    if (doc) {
+      await Units.deleteOne({
+        company: doc._id,
+      });
+      await Actives.deleteOne({
+        company: doc._id,
+      });
+    }
+  }
 });
 
 export default mongoose.model('Companys', CompanySchema);

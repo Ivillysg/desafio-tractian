@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import Companys from '../models/companys';
 import Unit from '../models/unit';
-import CRUD from '../protocols/CRUD';
+import CRUD from '../interface/CRUD';
 
 import * as Yup from 'yup';
 
@@ -30,7 +30,9 @@ class UnitController {
   }
 
   async index(req: Request, res: Response) {
-    const units = await Unit.find().populate('actives');
+    const units = await Unit.find()
+      .populate(['actives', 'company'])
+      .sort({ createdAt: -1 });
     return res.status(200).json(units);
   }
   async show(req: Request, res: Response) {
@@ -60,9 +62,9 @@ class UnitController {
   }
   async delete(req: Request, res: Response) {
     const { id } = req.params;
-    const unit = await CRUD.delete(Unit, id);
+    const unit = await Unit.findByIdAndDelete(id);
 
-    if (unit['n'] === 0) {
+    if (!unit) {
       return res.status(404).json({ message: 'Unit not found!' });
     }
     return res.status(200).json(unit);
