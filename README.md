@@ -24,13 +24,7 @@ O objetivo do desafio foi desenvolver uma pequena aplicação utilizando Node.js
 ## 🖥 Preview
 
 <p align="center">
- <img src="https://imgur.com/a/iAP92JL.png" width="500" >
-</p>
-<p align="center">
- <img src="https://imgur.com/JtHWsf4.png" width="700" >
-</p>
-<p align="center">
- <img src="https://imgur.com/0caQsfp.png" width="700" >
+ <img src="https://imgur.com/m6TIljE.png" width="700" >
 </p>
 
 ---
@@ -56,7 +50,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
  - [Typescript](https://classic.yarnpkg.com/)
  - [Cors](https://www.npmjs.com/package/cors)
  - [Mongoose](https://mongoosejs.com/)
-
+ - [Jest](https://jestjs.io/)
 
 ---
 
@@ -72,7 +66,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Acesse a pasta do projeto no terminal/cmd
- $ cd desafio-tech
+ $ cd desafio-tractian
 
 # Vá para a pasta server
 $ cd server
