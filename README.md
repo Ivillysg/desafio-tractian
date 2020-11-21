@@ -19,6 +19,8 @@
 ## 📖 Sobre
 O objetivo do desafio foi desenvolver uma pequena aplicação utilizando Node.js/React.js.
 
+Link para testar o projeto: https://ivillysg.github.io/desafio/
+
 ---
 
 ## 🖥 Preview
