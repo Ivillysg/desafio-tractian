@@ -20,7 +20,6 @@ const Create: React.FC = () => {
   const handleSubmit = (values: any) => {
     const { assignedTo } = values;
     dispatch(CreateAction('company', values, assignedTo));
-    window.location.reload();
   };
 
   return (

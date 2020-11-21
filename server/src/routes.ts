@@ -6,6 +6,8 @@ import UserController from './app/controllers/UserController';
 
 const routes = Router();
 
+routes.get('/', (req, res) => res.json('Desafio FullStack Tractian'));
+
 //Users
 routes.get('/user', UserController.index);
 routes.post('/user', UserController.store);

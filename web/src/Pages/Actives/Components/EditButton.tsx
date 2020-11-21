@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Drawer, Form, Input, Select, InputNumber } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { setInterval } from 'timers';
 import { EditAction } from '../../../Store/modules/actions';
 import { ApplicationState } from '../../../Store';
 
@@ -41,9 +40,6 @@ const EditButton: React.FC<Props> = ({ children, ...rest }) => {
   };
   const handleSubmit = (values: any) => {
     dispatch(EditAction('active', state._id, values));
-    setInterval(() => {
-      window.location.reload();
-    }, 2000);
   };
   const find = (id: string) => {
     const active = actives.filter(value => {

@@ -24,7 +24,6 @@ const Create: React.FC<Props> = ({ name, ...rest }) => {
   const handleSubmit = (values: any) => {
     const { unit } = values;
     dispatch(CreateAction('active', values, unit));
-    window.location.reload();
   };
 
   return (
